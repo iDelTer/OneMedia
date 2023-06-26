@@ -1,0 +1,10 @@
+.App{
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+.container{
+    position: relative;
+    padding-top: 0.5rem;
+    padding-inline: 2rem;
+}

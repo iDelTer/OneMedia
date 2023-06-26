@@ -1,0 +1,47 @@
+.navbar{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 2rem;
+    height: 60px;
+    background-color: rgb(107, 107, 253);
+    color: white;
+    font-weight: 200;
+    font-size: 24px;
+}
+.navbar ul{
+    position: relative;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 1rem;
+    list-style: none;
+}
+.navbar ul li:hover{
+    cursor: pointer;
+}
+.searcher{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+.searcher input{
+    width: 350px;
+    padding-inline: 1rem;
+    padding-block: 0.35rem;
+    border: 0px;
+    border-radius: 5px;
+}
+.searcher input:focus{
+    outline: none;
+}
