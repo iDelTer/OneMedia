@@ -1,0 +1,9 @@
+.permanent-message{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(64, 64, 252);
+    color: white;
+}

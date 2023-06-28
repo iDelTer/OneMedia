@@ -1,5 +1,5 @@
 function Juegos() {
-  return <p>Algo!</p>;
+  return <p>Juegos!</p>;
 }
 
 export default Juegos;

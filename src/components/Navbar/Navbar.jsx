@@ -11,6 +11,7 @@ function Navbar() {
   };
 
   const handleFormSubmit = (e) => {
+    e.preventDefault();
     navigate(`/search/${searchQuery}`);
   };
 
@@ -23,10 +24,16 @@ function Navbar() {
     <nav className="navbar">
       <ul className="nav-links">
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">OneMedia</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/films">Películas</Link>
+        </li>
+        <li>
+          <Link to="/series">Series</Link>
+        </li>
+        <li>
+          <Link to="/games">Juegos</Link>
         </li>
       </ul>
       <form className="searcher" onSubmit={handleFormSubmit}>
@@ -41,11 +48,11 @@ function Navbar() {
       </form>
       <ul>
         <li>
-          <i class="bi bi-gear-fill"></i>
+          <i className="bi bi-gear-fill"></i>
         </li>
         <li>
           <Link to="/account">
-            <i class="bi bi-person-circle"></i>
+            <i className="bi bi-person-circle"></i>
           </Link>
         </li>
       </ul>

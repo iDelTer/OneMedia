@@ -1,5 +1,5 @@
 function Series() {
-  return <p>Algo!</p>;
+  return <p>Series!</p>;
 }
 
 export default Series;

@@ -1,0 +1,10 @@
+.container-message{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    bottom: 5px;
+    width: auto;
+    height: 75px;
+    padding-inline: 2rem;
+}

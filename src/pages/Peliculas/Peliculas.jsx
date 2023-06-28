@@ -1,5 +1,5 @@
 function Peliculas() {
-  return <p>Algo!</p>;
+  return <p>Películas!</p>;
 }
 
 export default Peliculas;
