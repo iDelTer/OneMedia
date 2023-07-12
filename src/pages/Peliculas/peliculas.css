@@ -1,0 +1,27 @@
+.category-pasarella{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-block: 1rem;
+    padding-inline: 2rem;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #6b6bfd;
+}
+.category-title{
+    margin-left: 1.5rem;
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+.films-card{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    width: 100%;
+}

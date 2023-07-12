@@ -5,8 +5,8 @@
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 2rem;
-    height: 60px;
+    padding-inline: 10rem;
+    min-height: 60px;
     background-color: rgb(107, 107, 253);
     color: white;
     font-weight: 200;
@@ -14,15 +14,21 @@
 }
 .navbar ul{
     position: relative;
+    width: 33%;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
     align-content: center;
     gap: 1rem;
     list-style: none;
+}
+.nav-links{
+    justify-content: flex-start;
+}
+.nav-settings{
+    justify-content: flex-end;
 }
 .navbar ul li:hover{
     cursor: pointer;

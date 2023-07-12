@@ -46,7 +46,7 @@ function Navbar() {
           onKeyDown={handleKeyPress}
         />
       </form>
-      <ul>
+      <ul className="nav-settings">
         <li>
           <i className="bi bi-gear-fill"></i>
         </li>

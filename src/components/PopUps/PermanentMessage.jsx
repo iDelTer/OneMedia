@@ -11,7 +11,7 @@ function PermanentMessage(msg) {
   }, []);
 
   function closeShow() {
-    setShow(false);
+    setShow(!show);
   }
 
   return (
