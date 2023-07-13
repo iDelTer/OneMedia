@@ -2,6 +2,9 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
+import Login from "./pages/Session/Login";
+import Register from "./pages/Session/Register";
+import Logout from "./pages/Session/Logout";
 import Usuario from "./pages/Usuarios/Usuario";
 import Cuenta from "./pages/Usuarios/Cuenta";
 import Busqueda from "./pages/Search";
@@ -24,6 +27,9 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/logout" element={<Logout />} />
           <Route path="/account" element={<Cuenta />} />
           <Route path="/user/:user" element={<Usuario />} />
           <Route path="/search" element={<Busqueda />} />

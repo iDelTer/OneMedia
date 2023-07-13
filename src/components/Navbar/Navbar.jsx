@@ -1,10 +1,17 @@
-import { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { getUserSession, setUserSession } from "../../utils/UserProfile";
 import "./navbar.css";
 
 function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
+  const [isLogged, setIsLogged] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const session = getUserSession();
+    if (session) setIsLogged(true);
+  });
 
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value);
@@ -51,8 +58,12 @@ function Navbar() {
           <i className="bi bi-gear-fill"></i>
         </li>
         <li>
-          <Link to="/account">
-            <i className="bi bi-person-circle"></i>
+          <Link to="/login">
+            {isLogged ? (
+              <i className="bi bi-person-circle"></i>
+            ) : (
+              <i className="bi bi-person-up"></i>
+            )}
           </Link>
         </li>
       </ul>

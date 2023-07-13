@@ -4,6 +4,9 @@
 }
 .container{
     position: relative;
+    min-height: 80%;
     padding-top: 4rem;
     padding-inline: 8rem;
+    display: flex;
+    flex-direction: column;
 }

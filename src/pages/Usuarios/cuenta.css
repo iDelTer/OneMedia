@@ -1,0 +1,77 @@
+#account-box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.profile-header{
+    position: relative;
+    padding-block: 2rem;
+    padding-inline: 2rem;
+    width: 100%;
+    height: 100%;
+    background-color: #6b6bfd;
+    border-radius: 5px;
+}
+.profile-header ul{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.profile-list-item{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+.profile-information-box{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 1rem;
+    height: 100%;
+}
+.profile-picture{
+    max-width: 128px;
+    max-height: 128px;
+}
+.profile-information-username{
+    font-size: 48px;
+    color: white;
+}
+.profile-information-joined{
+    font-size: 18px;
+    color: rgb(221, 221, 221);
+}
+
+.stats-list{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 24px;
+    gap: 2rem;
+}
+.profile-stats-box{
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+}
+.profile-stats-box span{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

@@ -40,14 +40,18 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
+    width: 33%;
 }
 .searcher input{
     width: 350px;
     padding-inline: 1rem;
-    padding-block: 0.35rem;
+    padding-block: 0.5rem;
     border: 0px;
     border-radius: 5px;
+    transition: 0.2s;
 }
 .searcher input:focus{
     outline: none;
+    padding-block: 0.75rem;
+    transition: 0.2s;
 }
