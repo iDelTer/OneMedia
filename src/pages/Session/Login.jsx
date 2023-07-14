@@ -19,7 +19,17 @@ function Login() {
     const session = getUserSession();
     if (session) navigate("/account");
     setLoaded(true);
+    getAPI();
   });
+
+  const getAPI = async () => {
+    fetch("http://localhost:8000/api/login", {
+      method: "POST",
+    })
+      .then((response) => response.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  };
 
   const handleChange = (e) => {
     console.log(e);

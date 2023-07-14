@@ -11,6 +11,7 @@
     height: 100%;
     background-color: #6b6bfd;
     border-radius: 5px;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
 }
 .profile-header ul{
     position: relative;
@@ -39,6 +40,7 @@
 .profile-picture{
     max-width: 128px;
     max-height: 128px;
+    border-radius: 50%;
 }
 .profile-information-username{
     font-size: 48px;
@@ -67,9 +69,23 @@
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    gap: 0.5rem;
     height: 100%;
 }
-.profile-stats-box span{
+.profile-stats-icons{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: center;
+}
+.profile-stats-texts{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+}
+.profile-stats-box .profile-stats-texts span{
     position: relative;
     display: flex;
     justify-content: center;

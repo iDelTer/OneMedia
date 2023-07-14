@@ -21,7 +21,7 @@ function Cuenta() {
           <li className="profile-list-item">
             <div className="profile-banner profile-picture-box">
               <img
-                src="https://cdn-icons-png.flaticon.com/512/281/281764.png?w=740&t=st=1689268447~exp=1689269047~hmac=43c4a3456bcb5db44949ee13c3f5cafa576b7a3ae5fa5c4f7fa240fec7e7eaf8"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcRuis3naVOidfr-89QVZTFyAwnncSVE-FanR0eUO44l2T0-42F31HNW0aSrrQSmXEcyI&usqp=CAU"
                 className="profile-picture"
               />
             </div>
@@ -37,26 +37,41 @@ function Cuenta() {
             <ul className="stats-list">
               <li>
                 <div className="profile-stats-box">
-                  <span>
-                    <i className="bi bi-eye-fill"></i>
-                  </span>
-                  <span>Completados</span>
+                  <div className="profile-stats-icons">
+                    <span className="stats-icon">
+                      <i className="bi bi-eye-fill"></i>
+                    </span>
+                  </div>
+                  <div className="profile-stats-texts">
+                    <span className="stats-value">0</span>
+                    <span className="stats-text">Completados</span>
+                  </div>
                 </div>
               </li>
               <li>
                 <div className="profile-stats-box">
-                  <span>
-                    <i className="bi bi-heart-fill"></i>
-                  </span>
-                  <span>Gustados</span>
+                  <div className="profile-stats-icons">
+                    <span className="stats-icon">
+                      <i className="bi bi-heart-fill"></i>
+                    </span>
+                  </div>
+                  <div className="profile-stats-texts">
+                    <span className="stats-value">0</span>
+                    <span className="stats-text">Favoritos</span>
+                  </div>
                 </div>
               </li>
               <li>
                 <div className="profile-stats-box">
-                  <span>
-                    <i className="bi bi-bookmark-fill"></i>
-                  </span>
-                  <span>Listas</span>
+                  <div className="profile-stats-icons">
+                    <span className="stats-icon">
+                      <i className="bi bi-bookmark-fill"></i>
+                    </span>
+                  </div>
+                  <div className="profile-stats-texts">
+                    <span className="stats-value">0</span>
+                    <span className="stats-text">Listas</span>
+                  </div>
                 </div>
               </li>
             </ul>

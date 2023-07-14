@@ -3,6 +3,11 @@ import { Rating } from "@mui/material";
 import RateStarActive from "../RateStarActive";
 import "./itemcard.css";
 
+/**Preguntar a GPT:
+ * Como empiezo una API
+ * Tengo las siguientes rutas
+ */
+
 function ItemCard({ props }) {
   const [title, setTitle] = useState("");
   const [image, setImage] = useState("");

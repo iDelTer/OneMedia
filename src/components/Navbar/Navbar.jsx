@@ -31,7 +31,10 @@ function Navbar() {
     <nav className="navbar">
       <ul className="nav-links">
         <li>
-          <Link to="/">OneMedia</Link>
+          <Link to="/">
+            <span className="navbar-title-text navbar-title-first">One</span>
+            <span className="navbar-title-text navbar-title-second">Media</span>
+          </Link>
         </li>
         <li>
           <Link to="/films">Películas</Link>

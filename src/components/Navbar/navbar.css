@@ -33,6 +33,13 @@
 .navbar ul li:hover{
     cursor: pointer;
 }
+.navbar-title-first{
+    color: rgb(255, 255, 255);
+}
+.navbar-title-second{
+    color: rgb(238, 238, 238);
+}
+
 .searcher{
     position: relative;
     display: flex;
