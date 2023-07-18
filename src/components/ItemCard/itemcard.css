@@ -1,10 +1,13 @@
 .itemcard{
     position: relative;
+    padding-block: 0.75rem;
     max-width: 200px;
     width: fit-content;
     text-align: center;
     border-radius: 5px;
     color: white;
+    scroll-snap-align: center;
+    object-fit: cover;
 }
 .itemcard-item-image img{
     border-radius: 10px;

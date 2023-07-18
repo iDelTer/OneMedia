@@ -1,44 +1,28 @@
-import ItemCard from "../../components/ItemCard/ItemCard";
+import HorizontalCarrusel from "../../components/HorizontalCarrusel/HorizontalCarrusel";
+import { filmsArray } from "../../utils/arrays";
 import "./peliculas.css";
 
 function Peliculas() {
-  const films = [
+  const categoriesLists = [
     {
-      name: "The Matrix Resurrections",
-      img: "dLIwpCTf4QoW01pp85KP9jcfTpu.jpg",
-      reldate: "2021-12-16",
-      rate: 4,
+      title: "Lanzamientos nuevos",
+      list: filmsArray,
     },
     {
-      name: "Suspiria",
-      img: "6wkPtxXs8OgswEQSx0cgpMNSqiy.jpg",
-      reldate: "2018-10-11",
-      rate: 2,
+      title: "Popular",
+      list: filmsArray,
     },
     {
-      name: "The SpongeBob SquarePants Movie",
-      img: "j4Sqs3SKNaJ4chdKXS1qqUlaWyW.jpg",
-      reldate: "2004-11-14",
-      rate: 5,
-    },
-    {
-      name: "[REC]",
-      img: "vIoBgFBJuqcIzudkFyagJuCxHZ7.jpg",
-      reldate: "2007-11-23",
-      rate: 0,
+      title: "Próximamente",
+      list: filmsArray,
     },
   ];
 
   return (
-    <div className="category-pasarella">
-      <div className="category-title">
-        <p>Lanzamientos recientes</p>
-      </div>
-      <div className="films-card">
-        {films.map((item) => (
-          <ItemCard props={item} key={item.name} />
-        ))}
-      </div>
+    <div id="films-container">
+      {categoriesLists.map((item) => (
+        <HorizontalCarrusel title={item.title} list={item.list} />
+      ))}
     </div>
   );
 }

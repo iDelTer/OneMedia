@@ -1,7 +1,8 @@
-.category-pasarella{
+.category-carrusel{
     position: relative;
     display: flex;
     flex-direction: column;
+    margin-bottom: 4rem;
     padding-block: 1rem;
     padding-inline: 2rem;
     width: 100%;
@@ -10,13 +11,15 @@
     background-color: #6b6bfd;
 }
 .category-title{
-    margin-left: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     font-size: 24px;
     font-weight: bold;
     text-transform: uppercase;
     color: white;
 }
-.films-card{
+.items-card{
     position: relative;
     display: flex;
     flex-direction: row;
@@ -26,6 +29,6 @@
     overflow-x: scroll;
     scroll-snap-type: x mandatory;
 }
-.films-card::-webkit-scrollbar{
+.items-card::-webkit-scrollbar{
     display: none;
 }

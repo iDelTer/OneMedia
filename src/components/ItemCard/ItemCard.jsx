@@ -1,12 +1,6 @@
 import { useState, useEffect } from "react";
 import { Rating } from "@mui/material";
-import RateStarActive from "../RateStarActive";
 import "./itemcard.css";
-
-/**Preguntar a GPT:
- * Como empiezo una API
- * Tengo las siguientes rutas
- */
 
 function ItemCard({ props }) {
   const [title, setTitle] = useState("");
@@ -23,7 +17,7 @@ function ItemCard({ props }) {
   });
 
   return (
-    <div className="itemcard">
+    <div className="itemcard" key={title}>
       <div className="itemcard-item itemcard-item-image">
         <img src={`https://image.tmdb.org/t/p/w154/${image}`} />
       </div>
