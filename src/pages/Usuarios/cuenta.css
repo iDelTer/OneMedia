@@ -6,12 +6,12 @@
 .profile-header{
     position: relative;
     padding-block: 2rem;
-    padding-inline: 2rem;
     width: 100%;
     height: 100%;
     background-color: #6b6bfd;
     border-radius: 5px;
     box-shadow: 5px 5px rgba(0, 0, 0, 0.2);
+    margin-bottom: 0rem;
 }
 .profile-header ul{
     position: relative;
@@ -24,6 +24,7 @@
 }
 .profile-list-item{
     position: relative;
+    padding-inline: 2rem;
     display: flex;
     flex-direction: row;
     gap: 1rem;
@@ -90,4 +91,46 @@
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+/* Nav */
+#account-content{
+    position: relative;
+    width: 100%;
+    padding-block: 1rem;
+    width: 100%;
+}
+#account-nav{
+    position: relative;
+    padding-block: 0.75rem;
+    width: 100%;
+    background-color: #6b6bfd;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+#account-nav ul{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    color: white;
+    font-weight: bold;
+}
+#account-nav ul li:hover{
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+#account-items{
+    position: relative;
+    padding-inline: 2rem;
+    border: 0.5px solid #6b6bfd;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.selected{
+    text-decoration: underline;
 }

@@ -8,11 +8,18 @@ function Cuenta() {
   const navigate = useNavigate();
 
   const [session, setSession] = useState("");
+  const [content, setContent] = useState("");
+
+  const toggleContent = (cont) => {
+    setContent(cont);
+    console.log(content);
+  };
 
   useEffect(() => {
     const sessionid = getUserSession();
     !sessionid ? navigate("/login") : setSession(sessionid);
-  });
+    setContent("completeds");
+  }, []);
 
   return (
     <article id="account-box">
@@ -78,6 +85,44 @@ function Cuenta() {
           </li>
         </ul>
       </article>
+
+      <div id="account-content">
+        <div id="account-nav">
+          <ul>
+            <li
+              className={content === "completeds" ? "selected" : ""}
+              onClick={() => toggleContent("completeds")}
+            >
+              Completadas
+            </li>
+            <li
+              className={content === "likeds" ? "selected" : ""}
+              onClick={() => toggleContent("likeds")}
+            >
+              Favoritos
+            </li>
+            <li
+              className={content === "lists" ? "selected" : ""}
+              onClick={() => toggleContent("lists")}
+            >
+              Listas
+            </li>
+          </ul>
+        </div>
+        <div id="account-items">
+          {(() => {
+            if (content === "completeds") {
+              return <p>Completado</p>;
+            }
+            if (content === "likeds") {
+              return <p>Favoritos</p>;
+            }
+            if (content === "lists") {
+              return <p>Listas</p>;
+            }
+          })()}
+        </div>
+      </div>
       <p>{`Tu id de sesión es: ${session}`}</p>
 
       <Link to="/login">Login</Link>
