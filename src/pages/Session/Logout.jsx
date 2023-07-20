@@ -1,16 +1,23 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getUserSession, removeUserSession } from "../../utils/UserProfile";
+import {
+  getLocalUserSession,
+  removeUserSession,
+} from "../../utils/UserProfile";
 
 function Logout() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const session = getUserSession();
+    const session = getLocalUserSession();
     session ? removeUserSession() : navigate("/login");
   });
 
-  return <div></div>;
+  return (
+    <div>
+      <p>Te has desconectado exitosamente</p>
+    </div>
+  );
 }
 
 export default Logout;

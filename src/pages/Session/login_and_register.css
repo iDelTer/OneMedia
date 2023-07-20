@@ -23,7 +23,7 @@
     gap: 1rem;
     text-align: center;
 }
-#form-box form input[type="text"], #form-box form input[type="password"]{
+#form-box form input[type="email"], #form-box form input[type="password"], #form-box form input[type="text"]{
     padding-block: 14px;
     padding-inline: 10px;
     font-size: 16px;
@@ -31,7 +31,7 @@
     border: 1px solid black;
     border-radius: 5px;
 }
-#form-box form input[type="text"]:focus, #form-box form input[type="password"]:focus{
+#form-box form input[type="email"]:focus, #form-box form input[type="password"]:focus, #form-box form input[type="text"]:focus{
     outline: none;
     border-color: #6b6bfd;
 }

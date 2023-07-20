@@ -1,5 +1,5 @@
 function Admin() {
-  return <p>Algo!</p>;
+  return <p>Admin!</p>;
 }
 
 export default Admin;

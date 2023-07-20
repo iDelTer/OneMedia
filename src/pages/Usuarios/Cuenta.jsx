@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { getUserSession } from "../../utils/UserProfile";
+import { getLocalUserSession, getUserData } from "../../utils/UserProfile";
 import "./cuenta.css";
 
 function Cuenta() {
   const navigate = useNavigate();
 
-  const [session, setSession] = useState("");
   const [content, setContent] = useState("");
+  const [userData, setUserData] = useState([]);
 
   const toggleContent = (cont) => {
     setContent(cont);
@@ -16,10 +16,30 @@ function Cuenta() {
   };
 
   useEffect(() => {
-    const sessionid = getUserSession();
-    !sessionid ? navigate("/login") : setSession(sessionid);
+    const sessionid = getLocalUserSession();
+    if (!sessionid) return navigate("/login");
     setContent("completeds");
+
+    const fetchData = async () => {
+      const data = await getUserData();
+      setUserData(data);
+    };
+
+    fetchData();
   }, []);
+
+  const categories = {
+    movies: "películas",
+    series: "series",
+    games: "juegos",
+  };
+
+  const formatDate = (date) => {
+    const dateObj = new Date(date);
+    const options = { day: "numeric", month: "long", year: "numeric" };
+    const formattedDate = dateObj.toLocaleDateString(undefined, options);
+    return formattedDate;
+  };
 
   return (
     <article id="account-box">
@@ -33,9 +53,16 @@ function Cuenta() {
               />
             </div>
             <div className="profile-banner profile-information-box">
-              <span className="profile-information-username">Nombre</span>
+              <span className="profile-information-username">
+                {userData["user"]
+                  ? userData.user["name"]
+                  : "Usuario no encontrado"}
+              </span>
               <span className="profile-information-joined">
-                Miembro desde ...
+                Miembro desde{" "}
+                {userData["user"]
+                  ? formatDate(userData.user["created_at"])
+                  : "Fecha desconocida"}
               </span>
             </div>
           </li>
@@ -50,8 +77,46 @@ function Cuenta() {
                     </span>
                   </div>
                   <div className="profile-stats-texts">
-                    <span className="stats-value">0</span>
-                    <span className="stats-text">Completados</span>
+                    <span className="stats-value">
+                      {userData["completeds"]
+                        ? userData["completeds"]["movies"].length
+                        : "0"}
+                    </span>
+                    <span className="stats-text">Películas Completadas</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="profile-stats-box">
+                  <div className="profile-stats-icons">
+                    <span className="stats-icon">
+                      <i className="bi bi-eye-fill"></i>
+                    </span>
+                  </div>
+                  <div className="profile-stats-texts">
+                    <span className="stats-value">
+                      {userData["completeds"]
+                        ? userData["completeds"]["series"].length
+                        : "0"}
+                    </span>
+                    <span className="stats-text">Series Completadas</span>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div className="profile-stats-box">
+                  <div className="profile-stats-icons">
+                    <span className="stats-icon">
+                      <i className="bi bi-eye-fill"></i>
+                    </span>
+                  </div>
+                  <div className="profile-stats-texts">
+                    <span className="stats-value">
+                      {userData["completeds"]
+                        ? userData["completeds"]["games"].length
+                        : "0"}
+                    </span>
+                    <span className="stats-text">Juegos Completados</span>
                   </div>
                 </div>
               </li>
@@ -63,7 +128,9 @@ function Cuenta() {
                     </span>
                   </div>
                   <div className="profile-stats-texts">
-                    <span className="stats-value">0</span>
+                    <span className="stats-value">
+                      {userData["likeds"] ? userData.likeds.length : "0"}
+                    </span>
                     <span className="stats-text">Favoritos</span>
                   </div>
                 </div>
@@ -76,7 +143,9 @@ function Cuenta() {
                     </span>
                   </div>
                   <div className="profile-stats-texts">
-                    <span className="stats-value">0</span>
+                    <span className="stats-value">
+                      {userData["lists"] ? userData["lists"].length : "0"}
+                    </span>
                     <span className="stats-text">Listas</span>
                   </div>
                 </div>
@@ -112,7 +181,28 @@ function Cuenta() {
         <div id="account-items">
           {(() => {
             if (content === "completeds") {
-              return <p>Completado</p>;
+              if (userData && userData.completeds) {
+                return Object.entries(userData.completeds).map(
+                  ([category, items], index) => {
+                    return (
+                      <div key={index}>
+                        <h3>
+                          {categories[category].charAt(0).toUpperCase() +
+                            categories[category].slice(1)}
+                        </h3>
+                        <p>{items.length} completadas</p>
+                        {/* <ul>
+                          {items.map((item, itemIndex) => (
+                            <li key={itemIndex}>{item}</li>
+                          ))}
+                        </ul> */}
+                      </div>
+                    );
+                  }
+                );
+              } else {
+                return <p>No hay datos completados.</p>;
+              }
             }
             if (content === "likeds") {
               return <p>Favoritos</p>;
@@ -121,9 +211,31 @@ function Cuenta() {
               return <p>Listas</p>;
             }
           })()}
+          {/* {(() => {
+            if (content === "completeds") {
+              if (
+                userData["completeds"] &&
+                Array.isArray(userData["completeds"])
+              ) {
+                userData["completeds"].map((item, index) => {
+                  console.log(item);
+                  {
+                    item.map((i, index) => {
+                      <p>{i}</p>;
+                    });
+                  }
+                });
+              }
+            }
+            if (content === "likeds") {
+              return <p>Favoritos</p>;
+            }
+            if (content === "lists") {
+              return <p>Listas</p>;
+            }
+          })()} */}
         </div>
       </div>
-      <p>{`Tu id de sesión es: ${session}`}</p>
 
       <Link to="/login">Login</Link>
       <br />

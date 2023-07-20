@@ -1,29 +1,112 @@
-export const getUserSession = () => {
-  if (sessionStorage.getItem("sessionId"))
-    return sessionStorage.getItem("sessionId");
+import {
+  apiEndpointRegister,
+  apiEndpointAccount,
+  apiEndpointLogout,
+  apiEndpointLogin,
+} from "./endpoints";
+
+export const getLocalUserSession = () => {
+  let data = {
+    access_token: "",
+  };
+  if (sessionStorage.getItem("access_token")) {
+    data.access_token = sessionStorage.getItem("access_token");
+    return data;
+  } else {
+    return null;
+  }
 };
 
-export const setUserSession = () => {
-  // Tiene que crear en verdad la id en la API
-  const id = Math.floor(Math.random() * 100);
-  sessionStorage.setItem("sessionId", id);
-  return id
-  // Enviar a la API que cree esa sesión
+export const getRemoteUserSession = async (bodyData) => {
+  try {
+    const response = await fetch(apiEndpointLogin, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: bodyData,
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    if (data.access_token) {
+      sessionStorage.setItem("access_token", data.access_token);
+      sessionStorage.setItem("token_type", data.token_type);
+      return "Sesión iniciada";
+    } else {
+      return data.message;
+    }
+  } catch (error) {
+    console.error(error);
+    return error.message;
+  }
 };
 
-export const removeUserSession = () => {
-  sessionStorage.removeItem("sessionId");
-  // Enviar a la API que borre esa sesión
-}
+export const setUserSession = async (bodyData) => {
+  try {
+    const response = await fetch(apiEndpointRegister, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: bodyData,
+    });
 
-// document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
+    const data = await response.json();
+    console.log(data);
 
-// const UserProfile = (function () {
-//   const getUserSession = () => {
-//     // document.cookie.match("(^|;)\\s*" + key + "\\s*=\\s*([^;]+)");
-//     if (sessionStorage.getItem("sessionId"))
-//       return sessionStorage.getItem("sessionId");
-//   };
-// })();
+    if (data.access_token) {
+      sessionStorage.setItem("access_token", data.access_token);
+      sessionStorage.setItem("token_type", data.token_type);
+      return "Sesión iniciada";
+    } else {
+      return data.message;
+    }
+  } catch (error) {
+    console.error(error);
+    return error.message;
+  }
+};
 
-// export default UserProfile;
+export const getUserData = async () => {
+  const userInfo = getLocalUserSession();
+  try {
+    const response = await fetch(apiEndpointAccount, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.access_token}`,
+      },
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    return data;
+  } catch (error) {
+    console.error(error);
+    return error.message;
+  }
+};
+
+export const removeUserSession = async () => {
+  const userInfo = getLocalUserSession();
+  try {
+    const response = await fetch(apiEndpointLogout, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.access_token}`,
+      },
+    });
+
+    const data = await response.json();
+    console.log(data);
+    sessionStorage.removeItem("access_token");
+    return data;
+  } catch (error) {
+    console.error(error);
+    return error.message;
+  }
+};

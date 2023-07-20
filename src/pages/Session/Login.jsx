@@ -1,41 +1,50 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { getUserSession, setUserSession } from "../../utils/UserProfile";
-import "./login.css";
+import {
+  getLocalUserSession,
+  getRemoteUserSession,
+  setUserSession,
+} from "../../utils/UserProfile";
+import "./login_and_register.css";
 
 function Login() {
   const navigate = useNavigate();
 
   const [sessionid, setSessionid] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loaded, setLoaded] = useState(false);
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    setSessionid(setUserSession());
-  };
 
-  useEffect(() => {
-    const session = getUserSession();
-    if (session) navigate("/account");
-    setLoaded(true);
-    getAPI();
-  });
+    const formData = new FormData(e.target);
+    const requestData = {};
+    formData.forEach((value, key) => {
+      requestData[key] = value;
+    });
 
-  const getAPI = async () => {
-    fetch("http://localhost:8000/api/login", {
-      method: "POST",
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data))
+    getRemoteUserSession(JSON.stringify(requestData))
+      .then((message) => {
+        if (message === "Sesión iniciada") {
+          navigate("/account");
+        } else {
+          console.log(message);
+        }
+      })
       .catch((error) => console.error(error));
   };
 
-  const handleChange = (e) => {
-    console.log(e);
-    e.target.id === "username"
-      ? setUsername(e.target.value)
-      : setPassword(e.target.value);
+  useEffect(() => {
+    const session = getLocalUserSession();
+    if (session) navigate("/account");
+    setLoaded(true);
+  });
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePassword = (e) => {
+    setPassword(e.target.value);
   };
 
   return (
@@ -43,25 +52,27 @@ function Login() {
       <h1>Login</h1>
       <form onSubmit={handleFormSubmit}>
         <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Username"
-          onChange={handleChange}
+          type="email"
+          name="email"
+          id="email"
+          placeholder="email@email.com"
+          onChange={handleEmail}
         />
         <input
           type="password"
           name="password"
           id="password"
           placeholder="Password"
-          onChange={handleChange}
+          onChange={handlePassword}
         />
         <Link to="/404">
           <span className="form-forgotten">Contraseña olvidada</span>
         </Link>
         <ul id="form-option">
           <li>
-            <button className="btn-register">Registrarme</button>
+            <Link to="/register">
+              <button className="btn-register">Registrarme</button>
+            </Link>
           </li>
           <li>
             <input type="submit" value="Login" id="btn-login" />

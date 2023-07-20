@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { getUserSession, setUserSession } from "../../utils/UserProfile";
+import { getLocalUserSession, setUserSession } from "../../utils/UserProfile";
 import "./navbar.css";
 
 function Navbar() {
@@ -8,10 +8,10 @@ function Navbar() {
   const [isLogged, setIsLogged] = useState(false);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const session = getUserSession();
-    if (session) setIsLogged(true);
-  });
+  // useEffect(() => {
+  //   const session = getLocalUserSession();
+  //   if (session) setIsLogged(true);
+  // });
 
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value);
@@ -62,11 +62,12 @@ function Navbar() {
         </li>
         <li>
           <Link to="/login">
-            {isLogged ? (
+            <i className="bi bi-person-circle"></i>
+            {/* {isLogged ? (
               <i className="bi bi-person-circle"></i>
             ) : (
               <i className="bi bi-person-up"></i>
-            )}
+            )} */}
           </Link>
         </li>
       </ul>
