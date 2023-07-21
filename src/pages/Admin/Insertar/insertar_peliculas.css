@@ -1,0 +1,41 @@
+#admin-films{
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    padding-inline: 1rem;
+    min-height: 700px;
+    /* background-color: red; */
+}
+#films-menu{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    width: 20%;
+    background-color: #6b6bfd;
+}
+#films-menu .menu-buttons-box{
+    width: 100%;
+}
+#films-menu .menu-buttons-box button{
+    padding-block: 2rem;
+    padding-inline: 2rem;
+    width: 100%;
+    background-color: inherit;
+    border: 0px;
+    color: white;
+    text-transform: uppercase;
+    text-align: left;
+}
+#films-menu .menu-buttons-box button:hover{
+    background-color: #5353fb;
+}
+.selected{
+    background-color: #5353fb;
+}
+#films-box{
+    width: 75%;
+    background-color: whitesmoke;
+    /* background-color: green; */
+}

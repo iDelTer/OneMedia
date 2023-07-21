@@ -15,6 +15,9 @@ import Serie from "./pages/Series/Serie";
 import Juegos from "./pages/Juegos/Juegos";
 import Juego from "./pages/Juegos/Juego";
 import Error404 from "./pages/Errors/404";
+import Admin from "./pages/Admin/Admin";
+import AdminPeliculas from "./pages/Admin/AdminPeliculas";
+import AdminInsertarPeliculas from "./pages/Admin/Insertar/AdminInsertarPeliculas";
 import TemporalMessage from "./components/PopUps/TemporalMessage";
 import PermanentMessage from "./components/PopUps/PermanentMessage";
 import "./App.css";
@@ -40,6 +43,12 @@ function App() {
           <Route path="/serie/:serie" element={<Serie />} />
           <Route path="/games" element={<Juegos />} />
           <Route path="/game/:game" element={<Juego />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route
+            path="/admin/insert/films"
+            element={<AdminInsertarPeliculas />}
+          />
+          <Route path="/admin/manage/films" element={<AdminPeliculas />} />
           <Route path="/404" element={<Error404 />} />
         </Routes>
       </main>

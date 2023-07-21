@@ -3,6 +3,7 @@ import {
   apiEndpointAccount,
   apiEndpointLogout,
   apiEndpointLogin,
+  apiEndpointAskAuthoritation,
 } from "./endpoints";
 
 export const getLocalUserSession = () => {
@@ -104,6 +105,26 @@ export const removeUserSession = async () => {
     const data = await response.json();
     console.log(data);
     sessionStorage.removeItem("access_token");
+    return data;
+  } catch (error) {
+    console.error(error);
+    return error.message;
+  }
+};
+
+export const askAuthoritation = async () => {
+  const userInfo = getLocalUserSession();
+  try {
+    const response = await fetch(apiEndpointAskAuthoritation, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.access_token}`,
+      },
+    });
+
+    const data = await response.json();
+
     return data;
   } catch (error) {
     console.error(error);
