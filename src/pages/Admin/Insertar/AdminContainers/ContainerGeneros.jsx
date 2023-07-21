@@ -1,14 +1,27 @@
 import { useState, useEffect } from "react";
+import { getGenres } from "../../../../services/genre";
 
 function ContainerGeneros() {
   const [genres, setGenres] = useState([]);
-  // https://github.com/albertomozo/proyecto_final_inicial/blob/main/peliculas.sql
+
+  useEffect(() => {
+    const fetchGenres = async () => {
+      const data = await getGenres();
+      setGenres(data);
+    }
+
+    fetchGenres();
+  }, [])
 
   return (
     <div id="container-name">
       <div id="container-search">
-        <select>
-          <option value=""></option>
+        <select id="genres-select" name="genres-select">
+          {
+            genres.map((item) => {
+              return <option key={item.id} value={item.web_id}>{item.name}</option>
+            })
+          }
         </select>
       </div>
       <div id="container-results">
