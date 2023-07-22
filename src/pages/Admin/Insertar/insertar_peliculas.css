@@ -4,6 +4,7 @@
     flex-direction: row;
     padding-inline: 1rem;
     min-height: 700px;
+    max-height: 700px;
     /* background-color: red; */
 }
 #films-menu{
@@ -35,6 +36,8 @@
     background-color: #5353fb;
 }
 #films-box{
+    position: relative;
+    overflow-y: auto;
     width: 75%;
     background-color: whitesmoke;
     /* background-color: green; */

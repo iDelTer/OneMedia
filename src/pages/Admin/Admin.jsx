@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { getLocalUserSession, askAuthoritation } from "../../utils/UserProfile";
 
 function Admin() {
@@ -24,7 +24,13 @@ function Admin() {
     <div>
       {load ? (
         <div id="admin-container">
-          <p>Admin!</p>
+          <ul>
+            <li>
+              <Link to="/admin/insert/movies">
+                Insertar Películas
+              </Link>
+            </li>
+          </ul>
         </div>
       ) : (
         <div>

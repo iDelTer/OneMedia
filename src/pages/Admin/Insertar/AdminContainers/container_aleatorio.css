@@ -1,0 +1,8 @@
+#peliculitas{
+    position: relative;
+    overflow-y: auto;
+}
+.movie-film-image{
+    width: 128px;
+    height: 128px;
+}

@@ -18,6 +18,7 @@ import Error404 from "./pages/Errors/404";
 import Admin from "./pages/Admin/Admin";
 import AdminPeliculas from "./pages/Admin/AdminPeliculas";
 import AdminInsertarPeliculas from "./pages/Admin/Insertar/AdminInsertarPeliculas";
+import ErrorMessage from "./components/PopUps/ErrorMessage";
 import "./App.css";
 
 function App() {
@@ -43,14 +44,14 @@ function App() {
           <Route path="/game/:game" element={<Juego />} />
           <Route path="/admin" element={<Admin />} />
           <Route
-            path="/admin/insert/films"
+            path="/admin/insert/movies"
             element={<AdminInsertarPeliculas />}
           />
-          <Route path="/admin/manage/films" element={<AdminPeliculas />} />
+          <Route path="/admin/manage/movies" element={<AdminPeliculas />} />
           <Route path="/404" element={<Error404 />} />
         </Routes>
       </main>
-      {/* <PermanentMessage msg="prueba" /> */}
+      <ErrorMessage msg="Esto es un mensaje de error!"/>
     </div>
   );
 }

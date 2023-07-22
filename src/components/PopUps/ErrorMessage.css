@@ -1,0 +1,28 @@
+.error-container{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    padding-block: 1rem;
+    padding-inline: 1rem;
+    left: 30%;
+    margin: auto;
+    padding: auto;
+    width: 40%;
+    border-radius: 5px;
+    background-color: #6b6bfd;
+    color: white;
+}
+.error-text{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+}
+.error-text span{
+    text-transform: uppercase;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
