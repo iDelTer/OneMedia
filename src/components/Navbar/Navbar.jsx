@@ -3,15 +3,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { getLocalUserSession, setUserSession } from "../../utils/UserProfile";
 import "./navbar.css";
 
-function Navbar() {
+function Navbar({msg}) {
   const [searchQuery, setSearchQuery] = useState("");
-  const [isLogged, setIsLogged] = useState(false);
+  const [showMessage, setShowMessage] = useState(true);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   const session = getLocalUserSession();
-  //   if (session) setIsLogged(true);
-  // });
+  useEffect(() => {
+    setShowMessage(msg);
+  }, [])
 
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value);
@@ -27,8 +26,15 @@ function Navbar() {
       handleFormSubmit(event);
     }
   };
+
+  function closeShow() {
+    setShowMessage(false);
+    console.log('clicked')
+  }
+
   return (
-    <nav className="navbar">
+    <div id="navbar-box">
+<nav className="navbar">
       <ul className="nav-links">
         <li>
           <Link to="/">
@@ -63,15 +69,25 @@ function Navbar() {
         <li>
           <Link to="/login">
             <i className="bi bi-person-circle"></i>
-            {/* {isLogged ? (
-              <i className="bi bi-person-circle"></i>
-            ) : (
-              <i className="bi bi-person-up"></i>
-            )} */}
           </Link>
         </li>
       </ul>
     </nav>
+    {(() => {
+          if(showMessage){
+            return (
+              <div id="navbar-message">
+                <div id="message-text">
+                  <span>{showMessage}</span>
+                </div>
+                <div id="message-menu" onClick={closeShow}>
+                  <i className="bi bi-x"></i>
+                </div>
+              </div>
+            )
+          }
+        })()}
+        </div>
   );
 }
 

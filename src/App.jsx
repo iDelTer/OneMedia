@@ -18,14 +18,12 @@ import Error404 from "./pages/Errors/404";
 import Admin from "./pages/Admin/Admin";
 import AdminPeliculas from "./pages/Admin/AdminPeliculas";
 import AdminInsertarPeliculas from "./pages/Admin/Insertar/AdminInsertarPeliculas";
-import TemporalMessage from "./components/PopUps/TemporalMessage";
-import PermanentMessage from "./components/PopUps/PermanentMessage";
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
+      <Navbar msg="Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba."/>
       <main className="container">
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -52,7 +50,7 @@ function App() {
           <Route path="/404" element={<Error404 />} />
         </Routes>
       </main>
-      <PermanentMessage msg="prueba" />
+      {/* <PermanentMessage msg="prueba" /> */}
     </div>
   );
 }

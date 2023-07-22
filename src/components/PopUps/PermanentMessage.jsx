@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./popups.css";
 import "./PermanentMessage.css";
 
-function PermanentMessage(msg) {
+function PermanentMessage({msg}) {
   const [show, setShow] = useState(true);
   const [message, setMessage] = useState("");
 
@@ -22,12 +22,12 @@ function PermanentMessage(msg) {
             <div className="permanent-message">
               <p className="message-text">{message}</p>
               <ul>
-                <li className="message-button" onClick={closeShow()}>
-                  <i class="bi bi-x"></i>
+                <li className="message-button" onClick={closeShow}>
+                  <i className="bi bi-x"></i>
                 </li>
               </ul>
             </div>
-          );
+          )
         }
       })()}
     </div>

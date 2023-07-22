@@ -62,3 +62,54 @@
     padding-block: 0.75rem;
     transition: 0.2s;
 }
+
+#navbar-message{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-content: center;
+    color: white;
+    background-color: rgb(0, 132, 255);
+    z-index: 2;
+    overflow: hidden;
+}
+#message-text{
+    position: relative;
+    padding-inline: 1rem;
+    width: 100%;
+    min-height: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+}
+#message-text span{
+    width: 100%;
+    animation: right_to_left 20s infinite linear;
+}
+#message-menu{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-self: center;
+    right: 0;
+    width: auto;
+    height: auto;
+    background-color: rgb(0, 132, 255);
+}
+.bi{
+    font-size: 24px;
+}
+
+@keyframes right_to_left {
+    from {
+        transform: translateX(120%);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+  }

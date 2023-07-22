@@ -3,8 +3,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    bottom: 5px;
-    width: auto;
+    bottom: 20px;
     height: 75px;
+    width: 100%;
     padding-inline: 2rem;
+    background-color: red;
 }

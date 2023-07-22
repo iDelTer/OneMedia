@@ -1,3 +1,13 @@
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background-color: whitesmoke;
+}
+::-webkit-scrollbar-thumb {
+    background: rgb(194, 194, 194);
+}
+
 .App{
     position: relative;
     height: 100vh;
