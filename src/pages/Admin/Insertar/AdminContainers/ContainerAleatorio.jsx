@@ -18,10 +18,10 @@ function ContainerAleatorio() {
       <table>
         <thead>
           <tr>
-            <td>Imagen</td>
-            <td>Nombre</td>
-            <td>Descripción</td>
-            <td>Acción</td>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Acción</th>
           </tr>
         </thead>
         <tbody>
