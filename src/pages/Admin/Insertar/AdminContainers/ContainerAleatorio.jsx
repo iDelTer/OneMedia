@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getRemoteMovies, addLocalMovie } from "../../../../services/movies";
-import { getUserLocalSession } from "../../../../utils/UserProfile";
+import { getLocalUserSession } from "../../../../utils/UserProfile";
 import "./container_aleatorio.css";
 
 function ContainerAleatorio() {
@@ -15,7 +15,6 @@ function ContainerAleatorio() {
   }, []);
 
   const addMovie = async (identifier) => {
-    // let sessionId = getUserLocalSession();
     let bodyObj = {};
     let movieItem = movies.find((item) => item.id === identifier);
     console.log(movieItem);
@@ -29,7 +28,7 @@ function ContainerAleatorio() {
     console.log(bodyObj);
 
     const data = await addLocalMovie(bodyObj);
-    console.log(JSON.stringify(films));
+    console.log(JSON.stringify(data));
   };
 
   return (

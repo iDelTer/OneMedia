@@ -31,7 +31,7 @@ export const addLocalMovie = async (bodyData) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${session}`,
+        Authorization: `Bearer ${session.access_token}`,
       },
       body: bodyData,
     });
