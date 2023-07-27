@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
+import { connect, useDispatch } from "react-redux";
+import { setMessage } from "../../actions";
 import {
   getLocalUserSession,
   getRemoteUserSession,
-  setUserSession,
 } from "../../utils/UserProfile";
+import { error_messages as emsg } from "../../utils/error_messages";
 import "./login_and_register.css";
 
-function Login() {
+function Login(props) {
   const navigate = useNavigate();
 
-  const [sessionid, setSessionid] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loaded, setLoaded] = useState(false);
@@ -24,14 +25,17 @@ function Login() {
     });
 
     getRemoteUserSession(JSON.stringify(requestData))
-      .then((message) => {
-        if (message === "Sesión iniciada") {
+      .then((msg) => {
+        if (msg === 200) {
+          props.setMessage(emsg["es"]["M4_CON001"]);
           navigate("/account");
         } else {
-          console.log(message);
+          props.setMessage(emsg["es"]["E5_CON001"]);
         }
       })
-      .catch((error) => console.error(error));
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   useEffect(() => {
@@ -83,4 +87,13 @@ function Login() {
   );
 }
 
-export default Login;
+const mapStateToProps = (state) => ({
+  message: state.message,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  setMessage: (message) => dispatch(setMessage(message)),
+});
+
+export default connect(null, mapDispatchToProps)(Login);
+// export default Login;

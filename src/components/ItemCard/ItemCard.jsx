@@ -7,7 +7,6 @@ function ItemCard({ props }) {
   const [image, setImage] = useState("");
   const [release, setRelease] = useState("");
   const [rating, setRating] = useState(0);
-  let starLength = Array(5).fill(1);
 
   useEffect(() => {
     setTitle(props.name);
@@ -22,11 +21,9 @@ function ItemCard({ props }) {
         <img src={`https://image.tmdb.org/t/p/w154${image}`} />
       </div>
       <div className="itemcard-item itemcard-item-title">
-        {/* <p>{title.replace(/_/g, " ")}</p> */}
         <p>{title.replace(/_/g, " ")}</p>
       </div>
       <div className="itemcard-item itemcard-item-release">
-        {/* <p>{release.replace(/_/g, " ")}</p> */}
         <p>{release}</p>
       </div>
       <div className="itemcard-item itemcard-item-rating">

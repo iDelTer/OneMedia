@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import { getRemoteMovies, addLocalMovie } from "../../../../services/movies";
+import {
+  getRemoteMoviesRandom,
+  addLocalMovie,
+} from "../../../../services/movies";
 import "./container_aleatorio.css";
 
 function ContainerAleatorio() {
@@ -7,7 +10,7 @@ function ContainerAleatorio() {
 
   useEffect(() => {
     const fetchRemoteMovies = async () => {
-      const films = await getRemoteMovies();
+      const films = await getRemoteMoviesRandom();
       setMovies(films);
     };
     fetchRemoteMovies();

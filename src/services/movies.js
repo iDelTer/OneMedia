@@ -1,19 +1,41 @@
 import {
-  apiEndpointGetRemoteMovies,
+  apiEndpointGetRemoteMoviesRandom,
   apiEndpointAddMovie,
   apiEndpointGetLocalMovies,
+  apiEndpointGetRemoteMoviesName,
 } from "../utils/endpoints";
 import { getLocalUserSession } from "../utils/UserProfile";
 
-export const getRemoteMovies = async () => {
+export const getRemoteMoviesRandom = async () => {
   const userInfo = getLocalUserSession();
   try {
-    const response = await fetch(apiEndpointGetRemoteMovies, {
+    const response = await fetch(apiEndpointGetRemoteMoviesRandom, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${userInfo.access_token}`,
       },
+    });
+
+    const data = await response.json();
+    console.log(data);
+
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getRemoteMoviesName = async (bodyData) => {
+  const userInfo = getLocalUserSession();
+  try {
+    const response = await fetch(apiEndpointGetRemoteMoviesName, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.access_token}`,
+      },
+      body: JSON.stringify(bodyData),
     });
 
     const data = await response.json();

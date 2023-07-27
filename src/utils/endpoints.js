@@ -6,8 +6,10 @@ export const apiEndpointLogout = "http://localhost:8000/api/logout";
 export const apiEndpointAskAuthoritation = "http://localhost:8000/api/askauth";
 export const apiEndpointGetGenres =
   "http://localhost:8000/api/genres/getgenres";
-export const apiEndpointGetRemoteMovies =
-  "http://localhost:8000/api/movies/getremotemovies";
+export const apiEndpointGetRemoteMoviesRandom =
+  "http://localhost:8000/api/movies/getremotemoviesrandom";
+export const apiEndpointGetRemoteMoviesName =
+  "http://localhost:8000/api/movies/getremotemoviesname";
 export const apiEndpointGetLocalMovies =
   "http://localhost:8000/api/movies/getmovies";
 export const apiEndpointAddMovie = "http://localhost:8000/api/movies/addmovie";

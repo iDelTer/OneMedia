@@ -29,12 +29,11 @@ export const getRemoteUserSession = async (bodyData) => {
     });
 
     const data = await response.json();
-    console.log(data);
 
     if (data.access_token) {
       sessionStorage.setItem("access_token", data.access_token);
       sessionStorage.setItem("token_type", data.token_type);
-      return "Sesión iniciada";
+      return 200;
     } else {
       return data.message;
     }
@@ -60,7 +59,7 @@ export const setUserSession = async (bodyData) => {
     if (data.access_token) {
       sessionStorage.setItem("access_token", data.access_token);
       sessionStorage.setItem("token_type", data.token_type);
-      return "Sesión iniciada";
+      return 200;
     } else {
       return data.message;
     }
@@ -82,8 +81,6 @@ export const getUserData = async () => {
     });
 
     const data = await response.json();
-    console.log(data);
-
     return data;
   } catch (error) {
     console.error(error);
@@ -103,7 +100,6 @@ export const removeUserSession = async () => {
     });
 
     const data = await response.json();
-    console.log(data);
     sessionStorage.removeItem("access_token");
     return data;
   } catch (error) {

@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { connect } from "react-redux";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -21,10 +22,10 @@ import AdminInsertarPeliculas from "./pages/Admin/Insertar/AdminInsertarPelicula
 import ErrorMessage from "./components/PopUps/ErrorMessage";
 import "./App.css";
 
-function App() {
+function App({ message }) {
   return (
     <div className="App">
-      <Navbar msg="Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba."/>
+      <Navbar msg="Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba." />
       <main className="container">
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -51,9 +52,14 @@ function App() {
           <Route path="/404" element={<Error404 />} />
         </Routes>
       </main>
-      <ErrorMessage msg="Esto es un mensaje de error!"/>
+      {message && <ErrorMessage msg={message} />}
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+  message: state.message,
+});
+
+export default connect(mapStateToProps)(App);
+// export default App;

@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
 import { getLocalUserSession, getUserData } from "../../utils/UserProfile";
 import "./cuenta.css";
 
 function Cuenta() {
   const navigate = useNavigate();
 
+  const [message, setMessage] = useState("");
   const [content, setContent] = useState("");
   const [userData, setUserData] = useState([]);
 
@@ -21,8 +22,12 @@ function Cuenta() {
     setContent("completeds");
 
     const fetchData = async () => {
-      const data = await getUserData();
-      setUserData(data);
+      try {
+        const data = await getUserData();
+        setUserData(data);
+      } catch (e) {
+        setMessage(e);
+      }
     };
 
     fetchData();
@@ -211,29 +216,6 @@ function Cuenta() {
               return <p>Listas</p>;
             }
           })()}
-          {/* {(() => {
-            if (content === "completeds") {
-              if (
-                userData["completeds"] &&
-                Array.isArray(userData["completeds"])
-              ) {
-                userData["completeds"].map((item, index) => {
-                  console.log(item);
-                  {
-                    item.map((i, index) => {
-                      <p>{i}</p>;
-                    });
-                  }
-                });
-              }
-            }
-            if (content === "likeds") {
-              return <p>Favoritos</p>;
-            }
-            if (content === "lists") {
-              return <p>Listas</p>;
-            }
-          })()} */}
         </div>
       </div>
 
@@ -246,4 +228,10 @@ function Cuenta() {
   );
 }
 
-export default Cuenta;
+const mapDispatchToProps = (dispatch) => ({
+  setMessage: (message) => dispatch(setMessage(message)),
+});
+
+export default connect(null, mapDispatchToProps)(Cuenta);
+
+// export default Cuenta;
