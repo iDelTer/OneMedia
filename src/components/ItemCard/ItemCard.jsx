@@ -11,20 +11,22 @@ function ItemCard({ props }) {
 
   useEffect(() => {
     setTitle(props.name);
-    setImage(props.img);
-    setRelease(props.reldate);
+    setImage(props.picture);
+    setRelease(props.release);
     setRating(props.rate);
   });
 
   return (
     <div className="itemcard" key={title}>
       <div className="itemcard-item itemcard-item-image">
-        <img src={`https://image.tmdb.org/t/p/w154/${image}`} />
+        <img src={`https://image.tmdb.org/t/p/w154${image}`} />
       </div>
       <div className="itemcard-item itemcard-item-title">
-        <p>{title}</p>
+        {/* <p>{title.replace(/_/g, " ")}</p> */}
+        <p>{title.replace(/_/g, " ")}</p>
       </div>
       <div className="itemcard-item itemcard-item-release">
+        {/* <p>{release.replace(/_/g, " ")}</p> */}
         <p>{release}</p>
       </div>
       <div className="itemcard-item itemcard-item-rating">

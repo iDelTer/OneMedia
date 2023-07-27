@@ -8,4 +8,6 @@ export const apiEndpointGetGenres =
   "http://localhost:8000/api/genres/getgenres";
 export const apiEndpointGetRemoteMovies =
   "http://localhost:8000/api/movies/getremotemovies";
+export const apiEndpointGetLocalMovies =
+  "http://localhost:8000/api/movies/getmovies";
 export const apiEndpointAddMovie = "http://localhost:8000/api/movies/addmovie";

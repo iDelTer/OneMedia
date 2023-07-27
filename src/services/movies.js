@@ -1,6 +1,7 @@
 import {
   apiEndpointGetRemoteMovies,
   apiEndpointAddMovie,
+  apiEndpointGetLocalMovies,
 } from "../utils/endpoints";
 import { getLocalUserSession } from "../utils/UserProfile";
 
@@ -41,5 +42,21 @@ export const addLocalMovie = async (bodyData) => {
   } catch (error) {
     console.error(error);
     return error.message;
+  }
+};
+
+export const getLocalMovies = async () => {
+  try {
+    const response = await fetch(apiEndpointGetLocalMovies, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
   }
 };

@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { getRemoteMovies, addLocalMovie } from "../../../../services/movies";
-import { getLocalUserSession } from "../../../../utils/UserProfile";
 import "./container_aleatorio.css";
 
 function ContainerAleatorio() {
@@ -20,8 +19,9 @@ function ContainerAleatorio() {
     console.log(movieItem);
     bodyObj = {
       name: movieItem.original_title,
-      description: movieItem.overview,
+      description: movieItem.overview.substring(0, 255),
       release: movieItem.release_date,
+      picture: movieItem.poster_path,
     };
     console.log(bodyObj);
     bodyObj = JSON.stringify(bodyObj);
