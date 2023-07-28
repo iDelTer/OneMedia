@@ -44,7 +44,7 @@ function Navbar({ msg }) {
             </Link>
           </li>
           <li>
-            <Link to="/films">Películas</Link>
+            <Link to="/movies">Películas</Link>
           </li>
           <li>
             <Link to="/series">Series</Link>

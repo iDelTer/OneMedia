@@ -37,8 +37,8 @@ function App({ message }) {
           <Route path="/user/:user" element={<Usuario />} />
           <Route path="/search" element={<Busqueda />} />
           <Route path="/search/:query" element={<Busqueda />} />
-          <Route path="/films" element={<Peliculas />} />
-          <Route path="/film/:film" element={<Pelicula />} />
+          <Route path="/movies" element={<Peliculas />} />
+          <Route path="/movie/:movie" element={<Pelicula />} />
           <Route path="/series" element={<Series />} />
           <Route path="/serie/:serie" element={<Serie />} />
           <Route path="/games" element={<Juegos />} />
