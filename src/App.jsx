@@ -1,3 +1,4 @@
+import { useState, createContext } from "react";
 import { Route, Routes } from "react-router-dom";
 import { connect } from "react-redux";
 import Navbar from "./components/Navbar/Navbar";
@@ -22,7 +23,11 @@ import AdminInsertarPeliculas from "./pages/Admin/Insertar/AdminInsertarPelicula
 import ErrorMessage from "./components/PopUps/ErrorMessage";
 import "./App.css";
 
+const msg = createContext();
+
 function App({ message }) {
+  const [msgValue, setMsgValue] = useState("Pruebita no más");
+
   return (
     <div className="App">
       <Navbar msg="Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba. Esto es un mensaje de prueba." />
@@ -52,7 +57,8 @@ function App({ message }) {
           <Route path="/404" element={<Error404 />} />
         </Routes>
       </main>
-      {message && <ErrorMessage msg={message} />}
+      {/* {message && <ErrorMessage msg={message} />} */}
+      {message && <ErrorMessage msg={msgValue} />}
     </div>
   );
 }
