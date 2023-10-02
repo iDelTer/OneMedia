@@ -1,5 +1,9 @@
 import { useState, useEffect } from "react";
-import { getLocalMovies, removeMovie } from "../../../../services/movies";
+import {
+  getLocalMovies,
+  removeMovie,
+  updateMovie,
+} from "../../../../services/movies";
 import "./container_name.css";
 
 function ContainerNombre() {
@@ -60,11 +64,45 @@ function ContainerNombre() {
     const data = await removeMovie(bodyObj);
     console.log(JSON.stringify(data));
     if (data.status === 200) {
-      // const index = movies.findIndex((obj) => obj.id === itemId);
-      // setMovies(movies.filter(index, 1));
       const updatedMovies = movies.filter((obj) => obj.id !== itemId);
       setMovies(updatedMovies);
+      // Show message
     }
+  };
+
+  const updateLocalMovie = async (itemId, itemName, itemDescription) => {
+    let bodyObj = {
+      id: itemId,
+      name: itemName,
+      description: itemDescription,
+    };
+    bodyObj = JSON.stringify(bodyObj);
+    const data = await updateMovie(bodyObj);
+    console.log(JSON.stringify(data));
+    if (data.status === 200) {
+      const updatedMovies = movies.filter((obj) => obj.id !== itemId);
+      setMovies(updatedMovies);
+      // Show message
+    }
+  };
+
+  const handleTitleChange = (index, newValue) => {
+    const updatedMovies = [...movies];
+    updatedMovies[index].name = newValue;
+    setMovies(updatedMovies);
+  };
+
+  const handleDescriptionChange = (index, newValue) => {
+    const updatedMovies = [...movies];
+    updatedMovies[index].description = newValue;
+    setMovies(updatedMovies);
+  };
+
+  const handleButtonClick = (index) => {
+    const movieId = movies[index].id;
+    const movieTitle = movies[index].name;
+    const movieDescription = movies[index].description;
+    updateLocalMovie(movieId, movieTitle, movieDescription);
   };
 
   const handleKeyPress = (event) => {
@@ -92,13 +130,14 @@ function ContainerNombre() {
               <th>Imagen</th>
               <th>Nombre</th>
               <th>Descripción</th>
-              <th>Acción</th>
+              <th>Guardar Cambios</th>
+              <th>Borrar</th>
             </tr>
           </thead>
           <tbody>
             {movies &&
               movies.length > 0 &&
-              movies.map((item) => {
+              movies.map((item, index) => {
                 return (
                   <tr key={item.id}>
                     <td>
@@ -110,21 +149,40 @@ function ContainerNombre() {
                     <td>
                       <input
                         type="text"
-                        id="movie-title"
+                        id={"movie-title-" + item.id}
                         name="movie-title"
-                        value={item.name.replace(/_/g, " ")}
+                        defaultValue={item.name.replace(/_/g, " ")}
+                        onChange={(e) =>
+                          handleTitleChange(index, e.target.value)
+                        }
                       />
                     </td>
                     <td>
                       <textarea
                         name="movie-description"
-                        id="movie-description"
+                        id={"movie-description-" + item.id}
                         cols="30"
                         rows="10"
                         defaultValue={item.description
                           .substring(0, 120)
                           .replace(/_/g, " ")}
+                        onChange={(e) =>
+                          handleDescriptionChange(index, e.target.value)
+                        }
                       ></textarea>
+                    </td>
+                    <td>
+                      <i
+                        onClick={() => {
+                          // updateLocalMovie(
+                          //   item.id,
+                          //   item.name,
+                          //   item.description
+                          // );
+                          handleButtonClick(index);
+                        }}
+                        className="bi bi-pencil"
+                      ></i>
                     </td>
                     <td>
                       <i

@@ -15,3 +15,5 @@ export const apiEndpointGetLocalMovies =
 export const apiEndpointAddMovie = "http://localhost:8000/api/movies/addmovie";
 export const apiEndpointDeleteMovie =
   "http://localhost:8000/api/movies/deletemovie";
+export const apiEndpointUpdateMovie =
+  "http://localhost:8000/api/movies/updatemovie";
