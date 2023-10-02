@@ -1,0 +1,11 @@
+#peliculitas{
+    position: relative;
+    overflow-y: auto;
+}
+table thead tr th{
+    text-align: center;
+}
+.movie-film-image{
+    width: 128px;
+    height: 128px;
+}

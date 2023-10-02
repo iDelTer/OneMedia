@@ -57,8 +57,8 @@ function App({ message }) {
           <Route path="/404" element={<Error404 />} />
         </Routes>
       </main>
-      {/* {message && <ErrorMessage msg={message} />} */}
-      {message && <ErrorMessage msg={msgValue} />}
+      {message && <ErrorMessage msg={message} />}
+      {/* {message && <ErrorMessage msg={msgValue} />} */}
     </div>
   );
 }

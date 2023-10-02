@@ -3,6 +3,7 @@ import {
   apiEndpointAddMovie,
   apiEndpointGetLocalMovies,
   apiEndpointGetRemoteMoviesName,
+  apiEndpointDeleteMovie,
 } from "../utils/endpoints";
 import { getLocalUserSession } from "../utils/UserProfile";
 
@@ -77,6 +78,27 @@ export const getLocalMovies = async () => {
     });
 
     const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const removeMovie = async (bodyData) => {
+  const userInfo = getLocalUserSession();
+  try {
+    const response = await fetch(apiEndpointDeleteMovie, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.access_token}`,
+      },
+      // body: JSON.stringify(bodyData),
+      body: bodyData,
+    });
+
+    const data = await response.json();
+
     return data;
   } catch (error) {
     console.error(error);

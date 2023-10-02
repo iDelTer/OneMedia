@@ -26,9 +26,10 @@ function Admin() {
         <div id="admin-container">
           <ul>
             <li>
-              <Link to="/admin/insert/movies">
-                Insertar Películas
-              </Link>
+              <Link to="/admin/insert/movies">Insertar Películas</Link>
+            </li>
+            <li>
+              <Link to="/admin/manage/movies">Gestionar Películas</Link>
             </li>
           </ul>
         </div>
