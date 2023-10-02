@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { connect } from "react-redux";
 import { resetMessage } from "../../actions";
 import "./ErrorMessage.css";
 
 function ErrorMessage({ message, resetMessage }) {
+  const { contextValue, setContextValue } = useContext(msg);
   const [display, setDisplay] = useState(false);
 
   useEffect(() => {
@@ -18,7 +19,8 @@ function ErrorMessage({ message, resetMessage }) {
     display && (
       <div className="error-container">
         <div className="error-text">
-          <span>{message}</span>
+          {/* <span>{message}</span> */}
+          {<span>{contextValue}</span>}
         </div>
         <div className="error-menu">
           <i className="bi bi-x-lg"></i>
