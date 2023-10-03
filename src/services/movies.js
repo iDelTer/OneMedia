@@ -5,6 +5,7 @@ import {
   apiEndpointGetRemoteMoviesName,
   apiEndpointDeleteMovie,
   apiEndpointUpdateMovie,
+  apiEndpointRateMovie,
 } from "../utils/endpoints";
 import { getLocalUserSession } from "../utils/UserProfile";
 
@@ -119,6 +120,27 @@ export const updateMovie = async (bodyData) => {
     });
 
     const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const rateMovie = async (bodyData) => {
+  const userInfo = getLocalUserSession();
+  try {
+    const response = await fetch(apiEndpointRateMovie, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${userInfo.access_token}`,
+      },
+      body: bodyData,
+    });
+
+    const data = await response.json();
+    console.log(data);
 
     return data;
   } catch (error) {
