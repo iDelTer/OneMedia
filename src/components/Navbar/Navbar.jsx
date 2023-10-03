@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { askAuthoritation } from "../../utils/UserProfile";
 import "./navbar.css";
 
 function Navbar({ msg }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [showMessage, setShowMessage] = useState(true);
+  const [showAdmin, setShowAdmin] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     setShowMessage(msg);
+    fetchShowAdmin();
   }, []);
 
   const handleInputChange = (e) => {
@@ -30,6 +33,17 @@ function Navbar({ msg }) {
     setShowMessage(false);
     console.log("clicked");
   }
+
+  const fetchShowAdmin = async () => {
+    try {
+      const response = await askAuthoritation();
+      if (response.status === 200) {
+        setShowAdmin(true);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <div id="navbar-box">
@@ -72,11 +86,17 @@ function Navbar({ msg }) {
               <i className="bi bi-person-circle"></i>
             </Link>
           </li>
-          <li>
-            <Link to="/admin">
-              <i className="bi bi-tools"></i>
-            </Link>
-          </li>
+          {(() => {
+            if (showAdmin) {
+              return (
+                <li>
+                  <Link to="/admin">
+                    <i className="bi bi-tools"></i>
+                  </Link>
+                </li>
+              );
+            }
+          })()}
         </ul>
       </nav>
       {(() => {

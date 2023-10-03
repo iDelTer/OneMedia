@@ -54,7 +54,6 @@ export const setUserSession = async (bodyData) => {
     });
 
     const data = await response.json();
-    console.log(data);
 
     if (data.access_token) {
       sessionStorage.setItem("access_token", data.access_token);

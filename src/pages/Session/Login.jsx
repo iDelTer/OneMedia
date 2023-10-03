@@ -27,10 +27,12 @@ function Login(props) {
     getRemoteUserSession(JSON.stringify(requestData))
       .then((msg) => {
         if (msg === 200) {
-          props.setMessage(emsg["es"]["M4_CON001"]);
+          // props.setMessage(emsg["es"]["M4_CON001"]);
+          console.log(msg);
           navigate("/account");
         } else {
-          props.setMessage(emsg["es"]["E5_CON001"]);
+          console.log(msg);
+          // props.setMessage(emsg["es"]["E5_CON001"]);
         }
       })
       .catch((error) => {
