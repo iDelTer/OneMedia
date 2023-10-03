@@ -76,12 +76,12 @@ function Login(props) {
         </Link>
         <ul id="form-option">
           <li>
+            <input type="submit" value="Login" id="btn-login" />
+          </li>
+          <li>
             <Link to="/register">
               <button className="btn-register">Registrarme</button>
             </Link>
-          </li>
-          <li>
-            <input type="submit" value="Login" id="btn-login" />
           </li>
         </ul>
       </form>

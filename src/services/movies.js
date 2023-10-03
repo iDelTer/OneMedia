@@ -2,6 +2,7 @@ import {
   apiEndpointGetRemoteMoviesRandom,
   apiEndpointAddMovie,
   apiEndpointGetLocalMovies,
+  apiEndpointGetLocalMovie,
   apiEndpointGetRemoteMoviesName,
   apiEndpointDeleteMovie,
   apiEndpointUpdateMovie,
@@ -77,6 +78,23 @@ export const getLocalMovies = async () => {
       headers: {
         "Content-Type": "application/json",
       },
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+export const getLocalMovie = async (bodyData) => {
+  try {
+    const response = await fetch(apiEndpointGetLocalMovie, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: bodyData,
     });
 
     const data = await response.json();

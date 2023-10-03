@@ -43,6 +43,7 @@ function App({ message }) {
           <Route path="/search" element={<Busqueda />} />
           <Route path="/search/:query" element={<Busqueda />} />
           <Route path="/movies" element={<Peliculas />} />
+          <Route path="/movie" element={<Pelicula />} />
           <Route path="/movie/:movie" element={<Pelicula />} />
           <Route path="/series" element={<Series />} />
           <Route path="/serie/:serie" element={<Serie />} />
@@ -58,7 +59,6 @@ function App({ message }) {
         </Routes>
       </main>
       {message && <ErrorMessage msg={message} />}
-      {/* {message && <ErrorMessage msg={msgValue} />} */}
     </div>
   );
 }

@@ -1,0 +1,47 @@
+#content {
+  display: grid;
+  place-content: center;
+}
+#film-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+#film-context {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  padding-block: 1rem;
+}
+#film-context img {
+  width: 200px;
+}
+#film-context div {
+  text-align: center;
+  width: 100%;
+}
+
+#film-info {
+  display: flex;
+  padding-right: 8rem;
+  width: 70%;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+#film-name {
+  font-size: 28px;
+  font-weight: bold;
+}
+#film-overview {
+  font-size: 24px;
+}
+#film-release {
+  font-size: 16px;
+  font-style: italic;
+  color: grey;
+}

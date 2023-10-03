@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Rating } from "@mui/material";
 import { rateMovie } from "../../services/movies";
 import "./itemcard.css";
@@ -33,10 +34,14 @@ function ItemCard({ props }) {
   return (
     <div className="itemcard" key={id}>
       <div className="itemcard-item itemcard-item-image">
-        <img src={`https://image.tmdb.org/t/p/w154${image}`} />
+        <Link to={"/movie/" + id}>
+          <img src={`https://image.tmdb.org/t/p/w154${image}`} />
+        </Link>
       </div>
       <div className="itemcard-item itemcard-item-title">
-        <p>{title.replace(/_/g, " ")}</p>
+        <Link to={"/movie/" + id}>
+          <p>{title.replace(/_/g, " ")}</p>
+        </Link>
       </div>
       <div className="itemcard-item itemcard-item-release">
         <p>{release}</p>
@@ -47,7 +52,6 @@ function ItemCard({ props }) {
           value={rating}
           max={5}
           onChange={(event, newValue) => {
-            // setValue(id, newValue);
             setRating(newValue);
             updateRate(id, newValue);
           }}

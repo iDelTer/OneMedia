@@ -12,6 +12,8 @@ export const apiEndpointGetRemoteMoviesName =
   "http://localhost:8000/api/movies/getremotemoviesname";
 export const apiEndpointGetLocalMovies =
   "http://localhost:8000/api/movies/getmovies";
+export const apiEndpointGetLocalMovie =
+  "http://localhost:8000/api/movies/getmovie";
 export const apiEndpointAddMovie = "http://localhost:8000/api/movies/addmovie";
 export const apiEndpointDeleteMovie =
   "http://localhost:8000/api/movies/deletemovie";
