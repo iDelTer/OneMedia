@@ -48,10 +48,10 @@ In other hand, if you want the files for deployment, then run
 npm run build
 ```
 
-take all the files of the folder build/dist.
+Take all the files of the folder build/dist.
 
 ## You should know
-The may change the API endpoints depending if you are not running the client in the same server or enviroment as the back. This can find this file in `src/utils/endpoints.js`.
+You may change the API endpoints depending if you are not running the client in the same server or enviroment as the back. This can find this file in `src/utils/endpoints.js`.
 
 # Español
 
