@@ -32,7 +32,8 @@ function Register(props) {
       })
       .catch((error) => {
         console.error(error);
-        props.setMessage(error);
+        alert(error);
+        navigate("/404");
       });
   };
   useEffect(() => {
