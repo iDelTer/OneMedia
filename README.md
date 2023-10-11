@@ -1,16 +1,18 @@
 # OneMedia
 
-[English](#English)
-[Español](#Español)
-&emsp;[OneMedia](#omniplace)  
+[English](#English)    
+&emsp;[OneMedia](#OneMedia)  
 &emsp;[Required Programms](#required-programms)  
 &emsp;[Installation](#installation)  
 &emsp;[Running](#running)  
+&emsp;[You Should Know](#you-should-know)  
+
 [Español](#Español)  
-&emsp;[OneMedia](#omniplace-1)  
+&emsp;[OneMedia](#OneMedia-1)  
 &emsp;[Programas Necesarios](#programas-necesarios)  
-&emsp;[Instalación](#instalación)  
-&emsp;[Ejecución](#ejecución)
+&emsp;[Instalación](#instalación)   
+&emsp;[Ejecución](#ejecución)    
+&emsp;[Tener en cuenta](#tener-en-cuenta)  
 
 # English
 
@@ -48,6 +50,9 @@ npm run build
 
 take all the files of the folder build/dist.
 
+## You should know
+The may change the API endpoints depending if you are not running the client in the same server or enviroment as the back. This can find this file in `src/utils/endpoints.js`.
+
 # Español
 
 ## OneMedia
@@ -83,3 +88,6 @@ npm run build
 ```
 
 coge todos los archivos de la carpeta build/dist.
+
+## Tener en cuenta
+Puede que tengas que cambiar los endpoints de la API si el cliente no está en el mismo servidor o entorno que el back. Puedes encontrar este archvio en `src/utils/endpoints.js`.
