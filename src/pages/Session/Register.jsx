@@ -25,16 +25,9 @@ function Register(props) {
     setUserSession(JSON.stringify(requestData))
       .then((message) => {
         if (message === 200) {
-          props.setMessage(emsg["es"]["M4_CON003"]);
           navigate("/account");
         } else {
-          console.log(message);
-          if (
-            message ===
-            `UNEXPECTED TOKEN '<', "<!DOCTYPE "... IS NOT VALID JSON`
-          ) {
-            props.setMessage(emsg["es"]["E5_CON002"]);
-          }
+          navigate("/404");
         }
       })
       .catch((error) => {

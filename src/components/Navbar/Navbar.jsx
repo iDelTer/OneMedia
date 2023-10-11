@@ -1,15 +1,18 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { askAuthoritation } from "../../utils/UserProfile";
+import { askAuthoritation, getLocalUserSession } from "../../utils/UserProfile";
 import "./navbar.css";
 
 function Navbar({ msg }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [showMessage, setShowMessage] = useState(true);
   const [showAdmin, setShowAdmin] = useState(false);
+  const [showLogOut, setShowLogOut] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
+    const logOut = getLocalUserSession();
+    if (logOut) setShowLogOut(true);
     setShowMessage(msg);
     fetchShowAdmin();
   }, []);
@@ -31,7 +34,6 @@ function Navbar({ msg }) {
 
   function closeShow() {
     setShowMessage(false);
-    console.log("clicked");
   }
 
   const fetchShowAdmin = async () => {
@@ -60,14 +62,14 @@ function Navbar({ msg }) {
           <li>
             <Link to="/movies">Películas</Link>
           </li>
-          <li>
+          {/* <li>
             <Link to="/series">Series</Link>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <Link to="/games">Juegos</Link>
-          </li>
+          </li> */}
         </ul>
-        <form className="searcher" onSubmit={handleFormSubmit}>
+        {/* <form className="searcher" onSubmit={handleFormSubmit}>
           <input
             type="text"
             name="searcher"
@@ -76,15 +78,10 @@ function Navbar({ msg }) {
             onChange={handleInputChange}
             onKeyDown={handleKeyPress}
           />
-        </form>
+        </form> */}
         <ul className="nav-settings">
           <li>
             <i className="bi bi-gear-fill"></i>
-          </li>
-          <li>
-            <Link to="/login">
-              <i className="bi bi-person-circle"></i>
-            </Link>
           </li>
           {(() => {
             if (showAdmin) {
@@ -92,6 +89,22 @@ function Navbar({ msg }) {
                 <li>
                   <Link to="/admin">
                     <i className="bi bi-tools"></i>
+                  </Link>
+                </li>
+              );
+            }
+          })()}
+          <li>
+            <Link to="/login">
+              <i className="bi bi-person-circle"></i>
+            </Link>
+          </li>
+          {(() => {
+            if (showLogOut) {
+              return (
+                <li>
+                  <Link to="/logout">
+                    <i className="bi bi-door-open-fill"></i>
                   </Link>
                 </li>
               );

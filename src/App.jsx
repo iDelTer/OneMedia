@@ -39,6 +39,7 @@ function App({ message }) {
           <Route path="/register" element={<Register />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/account" element={<Cuenta />} />
+          <Route path="/profile" element={<Cuenta />} />
           <Route path="/user/:user" element={<Usuario />} />
           <Route path="/search" element={<Busqueda />} />
           <Route path="/search/:query" element={<Busqueda />} />

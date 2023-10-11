@@ -19,7 +19,7 @@ function Logout(props) {
   const logginout = async () => {
     const res = await removeUserSession();
     if (res.message === 200) {
-      props.setMessage(emsg["es"]["M4_SUC002"]);
+      navigate("/login");
     }
   };
 

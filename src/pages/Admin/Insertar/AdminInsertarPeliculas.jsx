@@ -76,7 +76,7 @@ function AdminInsertarPeliculas() {
                 Buscar por nombre
               </button>
             </div>
-            <div
+            {/* <div
               className={
                 containerOption === "genre"
                   ? "selected menu-buttons-box"
@@ -86,7 +86,7 @@ function AdminInsertarPeliculas() {
               <button onClick={() => changeContainerOption("genre")}>
                 Buscar por género
               </button>
-            </div>
+            </div> */}
           </div>
           <div id="films-box">{renderSelectedComponent()}</div>
         </div>

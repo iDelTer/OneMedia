@@ -218,12 +218,6 @@ function Cuenta() {
           })()}
         </div>
       </div>
-
-      <Link to="/login">Login</Link>
-      <br />
-      <Link to="/register">Register</Link>
-      <br />
-      <Link to="/logout">Logout</Link>
     </article>
   );
 }
