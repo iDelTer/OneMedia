@@ -65,8 +65,11 @@ function ContainerNombre() {
     console.log(JSON.stringify(data));
     if (data.status === 200) {
       const updatedMovies = movies.filter((obj) => obj.id !== itemId);
+      alert("Película borrada");
       setMovies(updatedMovies);
       // Show message
+    } else {
+      console.log("Ha surgido un error");
     }
   };
 
@@ -81,8 +84,11 @@ function ContainerNombre() {
     console.log(JSON.stringify(data));
     if (data.status === 200) {
       const updatedMovies = movies.filter((obj) => obj.id !== itemId);
+      alert("Película actualizada");
       setMovies(updatedMovies);
       // Show message
+    } else {
+      alert("Ha surgido un error");
     }
   };
 
