@@ -33,6 +33,7 @@ function ContainerAleatorio() {
     const data = await addLocalMovie(bodyObj);
     alert("Película insertada");
     console.log(JSON.stringify(data));
+    location.reload();
   };
 
   return (

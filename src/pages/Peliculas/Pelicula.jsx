@@ -37,7 +37,9 @@ function Pelicula() {
     };
     bodyData = JSON.stringify(bodyData);
     const data = await rateMovie(bodyData);
+    alert("Película votada");
     console.log(JSON.stringify(data));
+    location.reload();
   };
 
   return (

@@ -27,8 +27,9 @@ function ItemCard({ props }) {
     };
     bodyData = JSON.stringify(bodyData);
     const data = await rateMovie(bodyData);
+    alert("Película votada");
     console.log(JSON.stringify(data));
-    setRating(newValue);
+    location.reload();
   };
 
   return (
