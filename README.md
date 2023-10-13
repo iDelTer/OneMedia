@@ -1,24 +1,24 @@
 # OneMedia
 
-[English](#English)    
+[English](#English)  
 &emsp;[OneMedia](#OneMedia)  
 &emsp;[Required Programms](#required-programms)  
 &emsp;[Installation](#installation)  
 &emsp;[Running](#running)  
-&emsp;[You Should Know](#you-should-know)  
+&emsp;[You Should Know](#you-should-know)
 
 [Español](#Español)  
 &emsp;[OneMedia](#OneMedia-1)  
 &emsp;[Programas Necesarios](#programas-necesarios)  
-&emsp;[Instalación](#instalación)   
-&emsp;[Ejecución](#ejecución)    
-&emsp;[Tener en cuenta](#tener-en-cuenta)  
+&emsp;[Instalación](#instalación)  
+&emsp;[Ejecución](#ejecución)  
+&emsp;[Tener en cuenta](#tener-en-cuenta)
 
 # English
 
 ## OneMedia
 
-OneMedia is a web application that displays information about films and the users can consult them, create list to save them and vote. This project requires a server and you can find it in [OneMediaBack](https://github.com/iDelTer/OneMediaBack).
+OneMedia is a web application that displays information about films and the users can consult them, create list to save them and vote. This project requires a server and you can find it in [OneMediaBack](https://github.com/iDelTer/OneMediaBack). I recommend to set up first the server and then the client. Client works, but without server client won't connect to database.
 
 ## Required Programms
 
@@ -51,13 +51,14 @@ npm run build
 Take all the files of the folder build/dist.
 
 ## You should know
+
 You may change the API endpoints depending if you are not running the client in the same server or enviroment as the back. This can find this file in `src/utils/endpoints.js`.
 
 # Español
 
 ## OneMedia
 
-OneMedia es una aplicación web donde se almacena información sobre películas y los usuarios pueden consultarlas, crear listas donde guardarlas y votarlas. Este proyecto requiere un servidor y puedes encontrarlo en [OneMediaBack](https://github.com/iDelTer/OneMediaBack).
+OneMedia es una aplicación web donde se almacena información sobre películas y los usuarios pueden consultarlas, crear listas donde guardarlas y votarlas. Este proyecto requiere un servidor y puedes encontrarlo en [OneMediaBack](https://github.com/iDelTer/OneMediaBack). Recomiendo configurar primero el servidor. El cliente funcionará, pero no podrá comunicarse con el servidor y no mostrará datos.
 
 ## Programas Necesarios
 
@@ -90,4 +91,5 @@ npm run build
 coge todos los archivos de la carpeta build/dist.
 
 ## Tener en cuenta
+
 Puede que tengas que cambiar los endpoints de la API si el cliente no está en el mismo servidor o entorno que el back. Puedes encontrar este archvio en `src/utils/endpoints.js`.
